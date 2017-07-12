@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><root>
+    <test-scenario name="Default test">
+        <summary>
+            <info desc="07/12/2017 01:30 PM" name="Time Started"/>
+            <info desc="07/12/2017 01:31 PM" name="Time Ended"/>
+            <info desc="0.63 mins" name="Time Elapsed"/>
+            <info desc="chrome 59.0.3071.115" name="Browser"/>
+        </summary>
+        <test-case name="Pre-Requisite Steps">
+            <test-step name="Go to this URL: http://52.213.201.100">
+                <report desc="Navigate to http://52.213.201.100" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="Clear data" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+            </test-step>
+            <test-step name="Login in Yelp Camp Site.">
+                <report desc="[Get Started Button] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Get Started Button] Click element" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Username Textbox] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Username Textbox] Type &quot;Paolo&quot;" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Password Textbox] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Password Textbox] Type &quot;Adopadmin123&quot;" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[SignIn Button] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[SignIn Button] Click element" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+            </test-step>
+        </test-case>
+        <test-case name="editCampground Steps">
+            <test-step name="Select Campground">
+                <report desc="[Batanes Option] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Batanes Option] Click element" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Edit Button] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Edit Button] Click element" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Description Field] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:30 PM"/>
+                <report desc="[Description Field] Type &quot;Waves break on the rocky shore of the island of Batan, province of Batanes, Philippines.Staying in a nice place has its rewards especially when returning from a grueling day trip trekking the terrain of the magnificent landscape of Batanes. Edit&quot;" status="Passed" timestamp="07/12/2017 01:31 PM"/>
+                <report desc="[Apply Changes Button] Wait for element to display (10)" status="Passed" timestamp="07/12/2017 01:31 PM"/>
+                <report desc="[Apply Changes Button] Click element" status="Passed" timestamp="07/12/2017 01:31 PM"/>
+            </test-step>
+        </test-case>
+    </test-scenario>
+</root>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="iso-8859-1"?><html>
+<head>
+<title>R3 Report Manager</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js">//</script>
+<script>
+	$( document ).ready(function() {
+
+		function expandContent(element) {
+			element.parent().nextAll(".box, .line").show();
+			element.attr("class","collapse");
+			element.unbind("click");
+			element.text("[-]");
+			element.click(function( event ) {
+				collapseContent($(this));
+			});
+		};
+		
+		function collapseContent(element) {
+			element.parent().nextAll(".box, .line").hide();
+			element.attr("class","expand");
+			element.unbind("click");
+			element.text("[+]");
+			element.click(function( event ) {
+				expandContent($(this));
+			});
+		};
+		
+		$( "span.expand" ).click(function( event ) {
+			expandContent($(this));
+		});
+		
+		$( "span.collapse" ).click(function( event ) {
+			collapseContent($(this));
+		});
+		
+		$( "span.collapse-all" ).click(function( event ) {
+			$( "span.collapse" ).click();
+		});
+		
+		$( "span.expand-all" ).click(function( event ) {
+			$( "span.expand" ).click();
+		});
+		
+		$( "span.collapse" ).click();
+		
+		$( "div.box[id='summary']" ).find("span.expand:first").click();
+		
+	});
+    </script>
+<style>
+		h1 {
+			font-size: 16pt;
+			margin: 10px 0px 0px 0px;
+		}
+		div.box {
+			font-family:"Calibri";
+			font-size: 9pt;
+			display: block;
+			width: inherit;
+			border: none;
+			margin: 0px 5px 6px 5px;
+			padding-bottom: 0px;
+		}
+		div.line {
+			font-family:"Calibri";
+			font-size: 9pt;
+			display: block;
+			width: inherit;
+			border: solid #aaa 1px;
+			margin: 4px 5px 4px 5px;
+			padding: 0px 3px 0px 3px;
+		}
+		div.header1 {
+			font-family:"Calibri";
+			font-size: 10pt;
+			color: white;
+			background-color: #333;
+			width: inherit;
+			border: solid #aaa 1px;
+			min-height: 19px;
+			padding: 0px 3px 1px 3px;
+			margin: 5px 0px 5px 0px;
+		}
+		div.header2 {
+			font-family:"Calibri";
+			font-size: 10pt;
+			color: black;
+			background-color: #cfcfcf;
+			width: inherit;
+			border: solid #bfbfbf 1px;
+			min-height: 19px;
+			padding: 0px 3px 1px 3px;
+			margin: 5px 0px 5px 0px;
+		}
+		table.metrics {
+			font-family:"Calibri";
+			font-size: 9pt;
+			border: solid gray 1px;
+		}
+		table.metrics td{
+			text-align:center;
+			border: solid #aaa 1px;
+		}
+		span.label {
+			font-family:"Calibri";
+			color: black;
+			font-weight: bold;
+		}
+		span.passed {
+			color: green;
+		}
+		span.failed {
+			color: red;
+		}
+		span.warning {
+			color: orange;
+		}
+		span.norun, span.incomplete {
+			color: grey;
+		}
+		span.info {
+			color: #3377ff;
+		}
+		span.done {
+			color: green;
+		}
+		span.status {
+			color: grey;
+		}
+		span.expand, span.collapse {
+			font-family:"Courier";
+			font-size: 10pt;
+			color: grey;
+			font-weight: bold;
+		}
+		a:link {
+			color: #3377ff;
+		}
+		
+		div.footer {
+		   position: fixed;
+		   right: 0;
+		   bottom: 0;
+		   left: 0;
+		   padding: 1rem;
+		   background-color: #efefef;
+		   text-align: left;
+		}
+		
+	</style>
+</head>
+<body>
+<center>
+<table class="metrics">
+<tr>
+<th width="105px">Level</th>
+<th width="75px">
+<span class="passed">Passed</span>
+</th>
+<th width="75px">
+<span class="failed">Failed</span>
+</th>
+<th width="75px">
+<span class="warning">Warning</span>
+</th>
+<th width="75px">
+<span class="incomplete">Incomplete</span>
+</th>
+<th width="75px">
+<span class="norun">No Run</span>
+</th>
+<th width="75px">Total</th>
+</tr>
+<tr>
+<td>Test Scenario</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Test Case</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Test Steps</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+</tr>
+</table>
+</center>
+<h1>Test Scenario: Default test</h1>
+<div id="test-summary" class="box">
+<div class="header2">
+<span href="#" class="collapse">[-]</span>Test Execution Summary<span class="status"> | <span class="passed">Passed</span>
+</span>
+</div>
+<div class="line">
+<span class="label">Time Started</span> : 07/12/2017 01:30 PM</div>
+<div class="line">
+<span class="label">Time Ended</span> : 07/12/2017 01:31 PM</div>
+<div class="line">
+<span class="label">Time Elapsed</span> : 0.63 mins</div>
+<div class="line">
+<span class="label">Browser</span> : chrome 59.0.3071.115</div>
+</div>
+<div id="test-case" class="box">
+<div class="header1">
+<span href="#" class="collapse">[-]</span>Test Case: Pre-Requisite Steps<span class="status"> | <span class="passed">Passed</span>
+</span>
+</div>
+<div id="test-step" class="box">
+<div class="header2">
+<span href="#" class="collapse">[-]</span> Step: Go to this URL: http://52.213.201.100<span class="status"> | <span class="passed">Passed</span>
+</span>
+</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | Navigate to http://52.213.201.100</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | Clear data</div>
+</div>
+<div id="test-step" class="box">
+<div class="header2">
+<span href="#" class="collapse">[-]</span> Step: Login in Yelp Camp Site.<span class="status"> | <span class="passed">Passed</span>
+</span>
+</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Get Started Button] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Get Started Button] Click element</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Username Textbox] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Username Textbox] Type "Paolo"</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Password Textbox] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Password Textbox] Type "Adopadmin123"</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [SignIn Button] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [SignIn Button] Click element</div>
+</div>
+</div>
+<div id="test-case" class="box">
+<div class="header1">
+<span href="#" class="collapse">[-]</span>Test Case: editCampground Steps<span class="status"> | <span class="passed">Passed</span>
+</span>
+</div>
+<div id="test-step" class="box">
+<div class="header2">
+<span href="#" class="collapse">[-]</span> Step: Select Campground<span class="status"> | <span class="passed">Passed</span>
+</span>
+</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Batanes Option] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Batanes Option] Click element</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Edit Button] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Edit Button] Click element</div>
+<div class="line">
+<span width="100px">07/12/2017 01:30 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Description Field] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:31 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Description Field] Type "Waves break on the rocky shore of the island of Batan, province of Batanes, Philippines.Staying in a nice place has its rewards especially when returning from a grueling day trip trekking the terrain of the magnificent landscape of Batanes. Edit"</div>
+<div class="line">
+<span width="100px">07/12/2017 01:31 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Apply Changes Button] Wait for element to display (10)</div>
+<div class="line">
+<span width="100px">07/12/2017 01:31 PM</span> | <b>
+<span class="passed">Passed</span>
+</b> | [Apply Changes Button] Click element</div>
+</div>
+</div>
+</body>
+<div class="footer">
+<strong>© 2016 Accenture TCoE Capability. </strong>All Rights Reserved.</div>
+</html>
